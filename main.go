@@ -26,10 +26,12 @@ func main() {
     resetTimeout := flag.Int("reset", 60, "The seconds after which the state is reset")
     flag.Parse()
 
-    go resetAfter(time.Duration(*resetTimeout), func() {
-        is_open = false
-        actuated = 0
-    })
+    if *resetTimeout > 0 {
+        go resetAfter(time.Duration(*resetTimeout), func() {
+            is_open = false
+            actuated = 0
+        })
+    }
 
     // Read the value
     http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
