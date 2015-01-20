@@ -25,4 +25,4 @@ To start the webserver on port 8080 (default) and have it reset its state after 
 $ WebhookResetCounter --reset 3600
 ```
 
-If you don't want any resetting, use `--reset 0` instead and if you don't want port 8080, use `--port` to specify any other port it should listen on instead.
+If you don't want any resetting, use `--reset 0` instead and if you don't want port 8080, use `--addr` to specify any other port or specific interface it should listen on instead (e.g. `--addr :9999` or `--addr 127.0.0.1:8080`)
